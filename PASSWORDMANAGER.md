@@ -20,14 +20,14 @@ while true; do
             read -p "ユーザー名を入力してください: " username
             read -s -p "パスワードを入力してください: " password
             echo  
-
+    
             echo "$service_name:$username:$password" >> "$password_file"
             echo "パスワードの追加は成功しました。";;
         "Get Password")
             read -p "サービス名を入力してください: " query_service
-
+    
             result=$(grep -i "^$query_service:" "$password_file")
-
+    
             if [ -z "$result" ]; then
                 echo "そのサービスは登録されていません。"
             else
